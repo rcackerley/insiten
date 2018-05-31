@@ -1,28 +1,87 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+nav {
+  padding: 20px 40px 20px 40px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+h2 {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+tr th {
+  background: #eaeef0;
+  padding: 12px 40px 12px 40px;
+}
+
+tr td {
+  background: white;
+  padding: 12px 40px 12px 40px;
+}
+
+/*flexible classes for layout */
+
+.layout-across {
+  display: flex;
+  flex-direction: row;
+}
+
+.layout-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-space-between {
+  justify-content: space-between;
+}
+
+/*Navigation classes */
+
+.logo {
+  width: 100px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.navlinks {
+  list-style-type: none;
+  font-weight: 300;
+}
+
+.navlinks .navlink {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navlinks .navlink:hover {
+  font-weight: 500;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: solid 1px white;
+  margin-left: 20px;
+  object-fit: cover;
+}
+
+
+.main-body {
+  background: #f4f7f9;
+  height: 100%;
+  padding: 100px 10% 100px 10%;
+  justify-content: center;
+}
+
+.add-button {
+  background: #4fb9ff;
+  font-size: 18px;
+  padding: 10px 25px 10px 25px;
+  height: 50px;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  border-radius: 50px;
 }
