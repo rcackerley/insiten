@@ -2,6 +2,7 @@ import React from 'react';
 import Ionicon from 'react-ionicons'
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import ChangeStatus from './ChangeStatus';
 
 let LeadTable = ({leads}) => {
   return (
@@ -23,15 +24,13 @@ let LeadTable = ({leads}) => {
           <td><Link to={'mailto:' + company.email}>{company.email}</Link></td>
           <td>{company.phone}</td>
           <td>
-            <select>
-              <option selected={company.status === 'Researching' ? 'selected' : null} value="lead">Researching</option>
-              <option selected={company.status === 'Pending Approval' ? 'selected' : null} value="pending approval">Pending Approval</option>
-              <option selected={company.status === 'Approved' ? 'selected' : null} value="approved">Approved</option>
-              <option selected={company.status === 'Declined' ? 'selected' : null} value="declined">Declined</option>
-            </select>
+            <ChangeStatus status={company.status} />
           </td>
           <td>
-            <Link to={{pathname: `/leads/${company.name.replace(' ', '')}`}}>
+            <Link to={
+              {pathname: `/leads/${company.name.replace(' ', '')}`,
+              state: {company}
+            }}>
               <button className="view-lead-button layout-across layout-vertical-align">
                 View Lead
                 <Ionicon icon="ios-arrow-dropright-circle" fontSize="25px" color="#4fb9ff"/>
