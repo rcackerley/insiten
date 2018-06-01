@@ -12,6 +12,10 @@ h2 {
   font-weight: 400;
 }
 
+table {
+  border-spacing: 0;
+}
+
 tr th {
   background: #eaeef0;
   padding: 12px 40px 12px 40px;
@@ -20,6 +24,7 @@ tr th {
 tr td {
   background: white;
   padding: 12px 40px 12px 40px;
+  text-align: center;
 }
 
 /*flexible classes for layout */
@@ -36,6 +41,10 @@ tr td {
 
 .layout-space-between {
   justify-content: space-between;
+}
+
+.layout-vertical-align {
+  align-items: center;
 }
 
 /*Navigation classes */
@@ -69,12 +78,15 @@ tr td {
   object-fit: cover;
 }
 
+td .avatar {
+  margin: 0 20px 0 0;
+}
+
 
 .main-body {
   background: #f4f7f9;
   height: 100%;
   padding: 100px 10% 100px 10%;
-  justify-content: center;
 }
 
 .add-button {
@@ -84,4 +96,13 @@ tr td {
   height: 50px;
   color: white;
   border-radius: 50px;
+}
+
+.view-lead-button {
+  background: none;
+  border: none;
+}
+
+.view-lead-button svg {
+  margin-left: 10px;
 }
