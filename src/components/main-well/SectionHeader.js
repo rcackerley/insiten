@@ -1,7 +1,10 @@
 import React from 'react';
 
-let SectionHeader = () =>
-  <h2>Pipeline</h2>
+let SectionHeader = ({company}) => {
+  return (
+    company ? <h2>{company.name}</h2> : <h2>Pipeline</h2>
+  )
+}
 
 
 export default SectionHeader;
