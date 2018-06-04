@@ -1,3 +1,5 @@
+import {setStatus} from './actions';
+
 const initialState = {
   leads: [
     {
@@ -8,17 +10,17 @@ const initialState = {
       contacts: [
         {
           name: 'Tyrion',
-          img: null,
+          img: '/images/leads/Tyrion_Lannister.jpg',
           email: 'tyrion@lannister.co'
         },
         {
           name: 'Jamie',
-          img: null,
+          img: '/images/leads/jaime.jpg',
           email: 'jamie@lannister.co'
         },
         {
           name: 'Cersei',
-          img: null,
+          img: '/images/leads/cersei.jpeg',
           email: 'cersei@lannister.co'
         }
       ],
@@ -36,6 +38,9 @@ const initialState = {
 }
 
 const reducerRoutes = {
+  [setStatus]: (state, action) => ({
+    ...state, leads: state.leads.filter(lead => lead.id !== action.payload.id).concat([action.payload])
+  }),
   default: (state, action) => state
 }
 

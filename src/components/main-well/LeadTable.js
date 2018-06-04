@@ -24,7 +24,7 @@ let LeadTable = ({leads}) => {
           <td><Link to={'mailto:' + company.email}>{company.email}</Link></td>
           <td>{company.phone}</td>
           <td>
-            <ChangeStatus status={company.status} />
+            <ChangeStatus company={company} />
           </td>
           <td>
             <Link to={

@@ -2,30 +2,29 @@ import React from 'react';
 import Ionicon from 'react-ionicons';
 import {editable} from '../HOC/Editable';
 
-let CompanyInfo = ({company, toggleEditable}) =>
+
+let FinancialInfo = ({financials, editMode, toggleEditable}) =>
   <div className="border-box layout-vertical layout-vertical-align">
-    <img className="avatar" src={company.logo} />
+    <h3>Financial Performance</h3>
     <div className="content">
       <div className="layout-across layout-vertical-align">
-        <Ionicon icon="ios-mail" fontSize="35px" color="#4fb9ff"/>Company Email:
+        <Ionicon icon="ios-stats" fontSize="35px" color="#4fb9ff"/>Revenue:
       </div>
-      <span>{company.email}</span>
+      {editMode ? <input /> : <span>{financials.revenue}</span>}
     </div>
     <div className="content">
       <div className="layout-across layout-vertical-align">
-        <Ionicon icon="ios-call" fontSize="35px" color="#4fb9ff"/>Company Phone:
+        <Ionicon icon="ios-trending-up" fontSize="35px" color="#4fb9ff"/>Profit:
       </div>
-      <span>{company.phone}</span>
+      <span>{financials.profit}</span>
     </div>
     <div className="content">
       <div className="layout-across layout-vertical-align">
-        <Ionicon icon="ios-home" fontSize="35px" color="#4fb9ff"/>Company Address:
+        <Ionicon icon="ios-cash" fontSize="35px" color="#4fb9ff"/>Capital:
       </div>
-      <span>{company.address}</span>
+      <span>{financials.capital}</span>
     </div>
     <button onClick={event => toggleEditable()}>edit</button>
   </div>
 
-
-
-export default editable(CompanyInfo);
+export default editable(FinancialInfo);
