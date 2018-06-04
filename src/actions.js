@@ -1,8 +1,8 @@
-export const setStatus = editedLead =>
+export const setCompany = editedLead =>
   ({
-    type: setStatus.toString(),
+    type: setCompany.toString(),
     payload: editedLead
   });
 
 
-  setStatus.toString = () => 'SET_STATUS';
+  setCompany.toString = () => 'SET_COMPANY';

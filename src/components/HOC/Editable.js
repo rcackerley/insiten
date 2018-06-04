@@ -5,11 +5,24 @@ export let editable = (WrappedComponent) => {
     constructor(props) {
       super(props);
       this.state = {
-        isEditable: false
+        isEditable: false,
+        firstRow: '',
+        secondRow: '',
+        thirdRow: ''
       }
     }
 
     render() {
+      let {firstRow, secondRow, thirdRow} = this.state;
+      
+      let editCompany = (company, location) => {
+        return location === 'financials' ? {...company, financials:
+          {...company.financials, revenue: firstRow, profit: secondRow, capital: thirdRow}}
+          : {...company, email: firstRow, phone: secondRow, address: thirdRow}
+      }
+
+      let handleChange = (event, row ) =>
+        this.setState({[row]: event.target.value})
 
       let toggleEditable = () => {
         let newStatus = !this.state.isEditable;
@@ -18,7 +31,7 @@ export let editable = (WrappedComponent) => {
       let {isEditable} = this.state;
 
       return (
-        <WrappedComponent {...this.props} toggleEditable={toggleEditable} editMode={isEditable} />
+        <WrappedComponent {...this.props} handleChange={handleChange} toggleEditable={toggleEditable} editMode={isEditable} editCompany={editCompany} />
       )
     }
   }

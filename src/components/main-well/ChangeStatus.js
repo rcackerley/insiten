@@ -1,17 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {setStatus} from '../../actions';
+import {setCompany} from '../../actions';
 import {editCompanyStatus} from '../../util/funcs';
 
-let ChangeStatus = ({company, setStatus}) =>
-  <select onChange={event => setStatus(editCompanyStatus(company, event.target.value)) }>
-    <option selected={company.status === 'Researching' ? 'selected' : null} value="Researching">Researching</option>
-    <option selected={company.status === 'Pending Approval' ? 'selected' : null} value="Pending Approval">Pending Approval</option>
-    <option selected={company.status === 'Approved' ? 'selected' : null} value="Approved">Approved</option>
-    <option selected={company.status === 'Declined' ? 'selected' : null} value="Declined">Declined</option>
+let ChangeStatus = ({company, setCompany}) =>
+  <select defaultValue={company.status} onChange={event => setCompany(editCompanyStatus(company, event.target.value)) }>
+    <option value="Researching">Researching</option>
+    <option value="Pending Approval">Pending Approval</option>
+    <option value="Approved">Approved</option>
+    <option value="Declined">Declined</option>
   </select>
 
 
 let mapStateToProps = state => state;
-let mapDispatchToProps = dispatch => ({setStatus: (lead) => dispatch(setStatus(lead)) });
+let mapDispatchToProps = dispatch => ({setCompany: (lead) => dispatch(setCompany(lead)) });
 export default connect(mapStateToProps, mapDispatchToProps)(ChangeStatus);

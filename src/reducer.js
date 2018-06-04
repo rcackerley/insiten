@@ -1,4 +1,4 @@
-import {setStatus} from './actions';
+import {setCompany} from './actions';
 
 const initialState = {
   leads: [
@@ -38,7 +38,7 @@ const initialState = {
 }
 
 const reducerRoutes = {
-  [setStatus]: (state, action) => ({
+  [setCompany]: (state, action) => ({
     ...state, leads: state.leads.filter(lead => lead.id !== action.payload.id).concat([action.payload])
   }),
   default: (state, action) => state
