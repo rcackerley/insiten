@@ -31,7 +31,7 @@ let CompanyInfo = ({company, toggleEditable, editMode, handleChange, editCompany
       toggleEditable();
       }}>
       save
-    </button> :<button onClick={event => toggleEditable()}>edit</button>}
+    </button> : <button className="edit-button" onClick={event => toggleEditable()}>edit<Ionicon icon="ios-build" fontSize="25px" color="white"/></button>}
   </div>
 
 

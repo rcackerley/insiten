@@ -7,6 +7,7 @@ import KeyContacts from './KeyContacts';
 import {connect} from 'react-redux';
 import {deleteCompany} from '../../actions';
 import {withRouter} from 'react-router-dom';
+import Ionicon from 'react-ionicons';
 
 class SingleLead extends React.Component {
 
@@ -19,7 +20,7 @@ class SingleLead extends React.Component {
         <div className="layout-across layout-space-between">
           <div className="layout-across">
             <SectionHeader company={company} />
-            <button onClick={event => {
+            <button className="delete-button" onClick={event => {
               deleteCompany(company);
               history.push('/')}}
             >

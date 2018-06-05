@@ -3,6 +3,7 @@ import InputField from './InputField';
 import {createContact} from '../../util/funcs';
 import {setCompany} from '../../actions';
 import {connect} from 'react-redux';
+import Ionicon from 'react-ionicons'
 
 class SingleContact extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class SingleContact extends React.Component {
               toggleEditable()
             }}
           >save</button>
-        : <button onClick={event => toggleEditable()}>edit</button>}
+        : <Ionicon className="icon-link" onClick={event => toggleEditable()} icon="ios-build" fontSize="25px" color="#768894"/>}
       </div>
     )
   }

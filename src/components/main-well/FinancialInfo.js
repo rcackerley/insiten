@@ -31,7 +31,7 @@ let FinancialInfo = ({company, editMode, toggleEditable, handleChange, editCompa
       toggleEditable();
       }}>
       save
-    </button> : <button onClick={event => toggleEditable()}>edit</button>}
+    </button> : <button className="edit-button" onClick={event => toggleEditable()}>edit<Ionicon icon="ios-build" fontSize="25px" color="white"/></button>}
   </div>
 
 let mapDispatchToProps = dispatch => ({setCompany: (lead) => dispatch(setCompany(lead)) });
