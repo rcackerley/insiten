@@ -4,7 +4,6 @@ import ChangeStatus from './ChangeStatus';
 import CompanyInfo from './CompanyInfo';
 import FinancialInfo from './FinancialInfo';
 import KeyContacts from './KeyContacts';
-import EditButton from './EditButton';
 import {connect} from 'react-redux';
 import {deleteCompany} from '../../actions';
 import {withRouter} from 'react-router-dom';
