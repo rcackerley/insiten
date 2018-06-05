@@ -6,7 +6,7 @@ const initialState = {
       id: 1029378,
       logo: '/images/leads/lannister-house.png',
       name: 'Lannister Co',
-      email: 'hello@lannister.co',
+      email: 'hearmeroar@lannister.co',
       contacts: [
         {
           name: 'Tyrion',
@@ -22,6 +22,38 @@ const initialState = {
           name: 'Cersei',
           img: '/images/leads/cersei.jpeg',
           email: 'cersei@lannister.co'
+        }
+      ],
+      phone: '000-000-0000',
+      status: 'Researching',
+      employee_count: 772,
+      address: '123 Kings Landing Rd.',
+      financials: {
+        revenue: 1000000,
+        profit: 200000,
+        capital: 20000000
+      }
+    },
+    {
+      id: 1029372,
+      logo: '/images/leads/stark.jpg',
+      name: 'Stark Co',
+      email: 'winteriscoming@stark.co',
+      contacts: [
+        {
+          name: 'Robb',
+          img: '/images/leads/robb.jpg',
+          email: 'robb@stark.co'
+        },
+        {
+          name: 'Arya',
+          img: '/images/leads/arya.jpg',
+          email: 'arya@stark.co'
+        },
+        {
+          name: 'Eddard',
+          img: '/images/leads/eddard.jpg',
+          email: 'ned@stark.co'
         }
       ],
       phone: '000-000-0000',

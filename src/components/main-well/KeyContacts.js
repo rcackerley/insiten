@@ -5,8 +5,8 @@ let KeyContacts = ({contacts, toggleEditable}) =>
   <div className="border-box layout-vertical layout-vertical-align">
     <h3>Contacts</h3>
       {
-        contacts.map(contact =>
-          <div className="content">
+        contacts.map((contact, i) =>
+          <div key={i + 'contact'} className="content">
             <div className="layout-across layout-vertical-align">
               <img className="avatar" src={contact.img}/>
             </div>

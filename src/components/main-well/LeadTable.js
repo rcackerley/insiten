@@ -6,8 +6,7 @@ import ChangeStatus from './ChangeStatus';
 
 let LeadTable = ({leads}) => {
   return (
-    leads.map(company =>
-    <table key={company.id}>
+    <table>
       <tbody>
         <tr>
           <th>Lead</th>
@@ -16,31 +15,32 @@ let LeadTable = ({leads}) => {
           <th>Status</th>
           <th></th>
         </tr>
-        <tr>
-          <td className="layout-vertical-align layout-across">
-            <img className="avatar" src={company.logo} />
-            {company.name}
-          </td>
-          <td><Link to={'mailto:' + company.email}>{company.email}</Link></td>
-          <td>{company.phone}</td>
-          <td>
-            <ChangeStatus company={company} />
-          </td>
-          <td>
-            <Link to={
-              {pathname: `/leads/${company.name.replace(' ', '')}`,
-              state: {company}
-            }}>
-              <button className="view-lead-button layout-across layout-vertical-align">
-                View Lead
-                <Ionicon icon="ios-arrow-dropright-circle" fontSize="25px" color="#4fb9ff"/>
-              </button>
-            </Link>
-          </td>
-        </tr>
+        { leads.map(company =>
+          <tr key={company.id}>
+            <td className="layout-vertical-align layout-across">
+              <img className="avatar" src={company.logo} />
+              {company.name}
+            </td>
+            <td><Link to={'mailto:' + company.email}>{company.email}</Link></td>
+            <td>{company.phone}</td>
+            <td>
+              <ChangeStatus company={company} />
+            </td>
+            <td>
+              <Link to={
+                {pathname: `/leads/${company.name.replace(' ', '')}`,
+                state: {id: company.id}
+              }}>
+                <button className="view-lead-button layout-across layout-vertical-align">
+                  View Lead
+                  <Ionicon icon="ios-arrow-dropright-circle" fontSize="25px" color="#4fb9ff"/>
+                </button>
+              </Link>
+            </td>
+          </tr>
+        )}
       </tbody>
     </table>
-  )
   )
 }
 

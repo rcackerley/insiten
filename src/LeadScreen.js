@@ -5,7 +5,7 @@ import SingleLead from './components/main-well/SingleLead';
 let LeadScreen = ({location}) =>
   <Fragment>
     <Navbar />
-    <SingleLead company={location.state.company}  />
+    <SingleLead id={location.state.id}  />
   </Fragment>
 
 
