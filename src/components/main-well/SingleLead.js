@@ -31,7 +31,7 @@ class SingleLead extends React.Component {
         <div className="layout-across wrap">
           <CompanyInfo company={company} />
           <FinancialInfo company={company}/>
-          <KeyContacts contacts={company.contacts}/>
+          <KeyContacts company={company}/>
         </div>
       </div>
     )
