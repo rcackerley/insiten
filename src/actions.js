@@ -10,5 +10,12 @@ export const deleteCompany = company =>
     payload: company
   })
 
+export const addCompany = company =>
+  ({
+    type: addCompany.toString(),
+    payload: company
+  })
+
   setCompany.toString = () => 'SET_COMPANY';
   deleteCompany.toString = () => 'DELETE_COMPANY';
+  addCompany.toString = () => 'ADD_COMPANY';

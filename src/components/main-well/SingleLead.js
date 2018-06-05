@@ -4,7 +4,6 @@ import ChangeStatus from './ChangeStatus';
 import CompanyInfo from './CompanyInfo';
 import FinancialInfo from './FinancialInfo';
 import KeyContacts from './KeyContacts';
-import EditButton from './EditButton';
 import {connect} from 'react-redux';
 import {deleteCompany} from '../../actions';
 import {withRouter} from 'react-router-dom';
@@ -31,7 +30,7 @@ class SingleLead extends React.Component {
         <div className="layout-across wrap">
           <CompanyInfo company={company} />
           <FinancialInfo company={company}/>
-          <KeyContacts contacts={company.contacts}/>
+          <KeyContacts company={company}/>
         </div>
       </div>
     )

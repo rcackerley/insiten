@@ -1,4 +1,4 @@
-import {setCompany, deleteCompany} from './actions';
+import {setCompany, deleteCompany, addCompany} from './actions';
 
 const initialState = {
   leads: [
@@ -11,17 +11,20 @@ const initialState = {
         {
           name: 'Tyrion',
           img: '/images/leads/Tyrion_Lannister.jpg',
-          email: 'tyrion@lannister.co'
+          email: 'tyrion@lannister.co',
+          id: 14568934256123
         },
         {
           name: 'Jamie',
           img: '/images/leads/jaime.jpg',
-          email: 'jamie@lannister.co'
+          email: 'jamie@lannister.co',
+          id: 14568934987
         },
         {
           name: 'Cersei',
           img: '/images/leads/cersei.jpeg',
-          email: 'cersei@lannister.co'
+          email: 'cersei@lannister.co',
+          id: 145689341111112
         }
       ],
       phone: '000-000-0000',
@@ -43,17 +46,20 @@ const initialState = {
         {
           name: 'Robb',
           img: '/images/leads/robb.jpg',
-          email: 'robb@stark.co'
+          email: 'robb@stark.co',
+          id: 14568934
         },
         {
           name: 'Arya',
           img: '/images/leads/arya.jpg',
-          email: 'arya@stark.co'
+          email: 'arya@stark.co',
+          id: 14568934222
         },
         {
           name: 'Eddard',
           img: '/images/leads/eddard.jpg',
-          email: 'ned@stark.co'
+          email: 'ned@stark.co',
+          id: 2340987
         }
       ],
       phone: '000-000-0000',
@@ -75,17 +81,20 @@ const initialState = {
         {
           name: 'Queen of Thorns',
           img: '/images/leads/queen.jpg',
-          email: 'qot@tyrell.co'
+          email: 'qot@tyrell.co',
+          id: 23333
         },
         {
           name: 'Margaery',
           img: '/images/leads/marg.jpeg',
-          email: 'marg@tyrell.co'
+          email: 'marg@tyrell.co',
+          id: 231
         },
         {
           name: 'Loras',
           img: '/images/leads/loras.jpg',
-          email: 'loras@stark.co'
+          email: 'loras@stark.co',
+          id: 235
         }
       ],
       phone: '000-000-0000',
@@ -107,17 +116,20 @@ const initialState = {
         {
           name: 'Dany',
           img: '/images/leads/dany.jpeg',
-          email: 'dany@dragons.co'
+          email: 'dany@dragons.co',
+          id: 234
         },
         {
           name: 'Rhaegar',
           img: '/images/leads/rhaegar.png',
-          email: 'rhaegar@dragons.co'
+          email: 'rhaegar@dragons.co',
+          id: 12
         },
         {
           name: 'Viserys',
           img: '/images/leads/viserys.jpg',
-          email: 'viserys@dragons.co'
+          email: 'viserys@dragons.co',
+          id: 190
         }
       ],
       phone: '000-000-0000',
@@ -139,6 +151,9 @@ const reducerRoutes = {
   }),
   [deleteCompany]: (state, action) => ({
     ...state, leads: state.leads.filter(lead => lead.id !== action.payload.id)
+  }),
+  [addCompany]: (state, action) => ({
+    ...state, leads: state.leads.concat([action.payload])
   }),
   default: (state, action) => state
 }
