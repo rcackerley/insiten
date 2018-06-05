@@ -17,7 +17,7 @@ class SingleLead extends React.Component {
     let company = returnedCompany[0]
     return (
       <div className="main-body layout-vertical">
-        <div className="layout-across layout-space-between">
+        <div className="layout-across layout-space-between wrap">
           <div className="layout-across">
             <SectionHeader company={company} />
             <button className="delete-button" onClick={event => {

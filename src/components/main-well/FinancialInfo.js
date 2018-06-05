@@ -9,19 +9,19 @@ let FinancialInfo = ({company, editMode, toggleEditable, handleChange, editCompa
   <div className="border-box layout-vertical layout-vertical-align">
     <h3>Financial Performance</h3>
     <div className="content">
-      <div className="layout-across layout-vertical-align">
+      <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-stats" fontSize="35px" color="#4fb9ff"/>Revenue:
       </div>
       {editMode ? <InputField handleChange={handleChange} row={'firstRow'} /> : <span>{company.financials.revenue}</span>}
     </div>
     <div className="content">
-      <div className="layout-across layout-vertical-align">
+      <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-trending-up" fontSize="35px" color="#4fb9ff"/>Profit:
       </div>
       {editMode ? <InputField handleChange={handleChange} row={'secondRow'} /> : <span>{company.financials.profit}</span>}
     </div>
     <div className="content">
-      <div className="layout-across layout-vertical-align">
+      <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-cash" fontSize="35px" color="#4fb9ff"/>Capital:
       </div>
       {editMode ? <InputField handleChange={handleChange} row={'thirdRow'} /> : <span>{company.financials.capital}</span>}

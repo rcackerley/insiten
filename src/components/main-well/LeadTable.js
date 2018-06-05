@@ -10,9 +10,9 @@ let LeadTable = ({leads}) => {
       <tbody>
         <tr>
           <th>Lead</th>
-          <th>email</th>
-          <th>Phone</th>
-          <th>Status</th>
+          <th className="hide-for-mobile">email</th>
+          <th className="hide-for-tablet">Phone</th>
+          <th className="hide-for-xsmall">Status</th>
           <th></th>
         </tr>
         { leads.map(company =>
@@ -21,9 +21,9 @@ let LeadTable = ({leads}) => {
               <img className="avatar" src={company.logo} />
               {company.name}
             </td>
-            <td><Link to={'mailto:' + company.email}>{company.email}</Link></td>
-            <td>{company.phone}</td>
-            <td>
+            <td className="hide-for-mobile"><Link to={'mailto:' + company.email}>{company.email}</Link></td>
+            <td className="hide-for-tablet">{company.phone}</td>
+            <td className="hide-for-xsmall">
               <ChangeStatus company={company} />
             </td>
             <td>

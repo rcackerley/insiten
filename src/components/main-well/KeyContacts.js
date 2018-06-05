@@ -4,6 +4,7 @@ import _ from 'lodash';
 import {createContact} from '../../util/funcs';
 import {setCompany} from '../../actions';
 import {connect} from 'react-redux';
+import Ionicon from 'react-ionicons';
 
 class KeyContacts extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class KeyContacts extends React.Component {
   render() {
     let {setCompany} = this.props;
     let {addContact} = this.state;
-    
+
     let toggleEditable = () => {
       let newStatus = !this.state.addContact;
       this.setState({addContact: newStatus})
@@ -58,7 +59,8 @@ class KeyContacts extends React.Component {
               toggleEditable()
             }}
           >save</button>
-          : <button onClick={event => toggleEditable()}>add contact</button>}
+          : <button className="edit-button" onClick={event => toggleEditable()}>add contact
+          <Ionicon icon="ios-person-add" fontSize="25px" color="white"/></button>}
       </div>
     )
   }

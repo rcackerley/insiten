@@ -32,7 +32,7 @@ class SingleContact extends React.Component {
         <div className="layout-across layout-vertical-align">
           <img className="avatar" src={contact.img}/>
         </div>
-        <div>
+        <div className="text-info">
           full name:
           <br />
           email:
