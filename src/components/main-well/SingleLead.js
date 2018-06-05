@@ -6,11 +6,13 @@ import FinancialInfo from './FinancialInfo';
 import KeyContacts from './KeyContacts';
 import EditButton from './EditButton';
 import {connect} from 'react-redux';
+import {deleteCompany} from '../../actions';
+import {withRouter} from 'react-router-dom';
 
 class SingleLead extends React.Component {
 
   render() {
-    let {id, leads} = this.props;
+    let {id, leads, deleteCompany, history} = this.props;
     let returnedCompany = leads.filter(lead => id === lead.id);
     let company = returnedCompany[0]
     return (
@@ -18,6 +20,11 @@ class SingleLead extends React.Component {
         <div className="layout-across layout-space-between">
           <div className="layout-across">
             <SectionHeader company={company} />
+            <button onClick={event => {
+              deleteCompany(company);
+              history.push('/')}}
+            >
+              Delete Company</button>
           </div>
           <ChangeStatus company={company} />
         </div>
@@ -32,4 +39,5 @@ class SingleLead extends React.Component {
 }
 
 let mapStateToProps = state => ({leads: state.leads})
-export default connect(mapStateToProps)(SingleLead);
+let mapDispatchToProps = dispatch => ({deleteCompany: (company) => dispatch(deleteCompany(company)) });
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SingleLead));

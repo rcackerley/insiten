@@ -4,5 +4,11 @@ export const setCompany = editedLead =>
     payload: editedLead
   });
 
+export const deleteCompany = company =>
+  ({
+    type: deleteCompany.toString(),
+    payload: company
+  })
 
   setCompany.toString = () => 'SET_COMPANY';
+  deleteCompany.toString = () => 'DELETE_COMPANY';
