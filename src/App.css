@@ -30,20 +30,20 @@ tr td {
 }
 
 p {
-  border-bottom: 1px solid grey;
+  /* border-bottom: 1px solid grey;
   margin: 10px 10px 10px 10px;
   padding: 0 0 10px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 100%; */
 }
 
-p span {
+div span {
   margin-left: 50px;
 }
 
-p svg {
+div svg {
   margin-right: 10px;
 }
 
@@ -70,6 +70,19 @@ p svg {
 .center {
   justify-content: center;
 }
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+/* .place-top-right {
+  position: absolute;
+  right: 20px;
+}
+
+.place-relatively {
+  position: relative;
+} */
 
 /*Navigation classes */
 
@@ -110,7 +123,7 @@ td .avatar {
 .main-body {
   background: #f4f7f9;
   height: 100%;
-  padding: 100px 10% 100px 10%;
+  padding: 100px 5% 100px 5%;
 }
 
 .add-button {
@@ -136,5 +149,24 @@ td .avatar {
   border-radius: 10px;
   background: white;
   padding: 20px 20px 20px 20px;
-  margin-top: 30px;
+  margin: 30px 30px 0 0;
+}
+
+.content {
+  border-bottom: 1px solid grey;
+  margin: 10px 10px 10px 10px;
+  padding: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.content img {
+  margin: 0 10px 0 0;
+}
+
+.editButton {
+  margin-left: 20px;
+  cursor: pointer;
 }
