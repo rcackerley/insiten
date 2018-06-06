@@ -79,7 +79,7 @@ const initialState = {
       email: 'growingstrong@tyrell.co',
       contacts: [
         {
-          name: 'Queen of Thorns',
+          name: 'Olenna',
           img: '/images/leads/queen.jpg',
           email: 'qot@tyrell.co',
           id: 23333
