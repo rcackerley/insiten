@@ -13,20 +13,34 @@ h2 {
   margin: 0
 }
 
+h3 {
+  font-family: Arial;
+  color: #474747;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 0;
+}
+
 table {
   border-spacing: 0;
-  margin-top: 20px
+  margin-top: 20px;
+  font-family: Arial;
+  color: #474747;
 }
 
 tr th {
   background: #eaeef0;
   padding: 12px 40px 12px 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 tr td {
   background: white;
-  padding: 12px 40px 12px 40px;
+  padding: 12px 25px 12px 25px;
   text-align: center;
+  border-bottom: 5px solid #f4f7f9;
 }
 
 p {
@@ -39,12 +53,35 @@ p {
   width: 100%; */
 }
 
-div span {
-  margin-left: 50px;
-}
-
 div svg {
   margin-right: 10px;
+}
+
+a {
+  color: #4fb9ff;
+  text-decoration: none;
+}
+
+input {
+  height: 40px;
+  padding: 2px 15px 2px 15px;
+  border:none;
+  background: #e8e8e8;
+  margin: 10px 10px 10px 10px;
+  color: #3a3b3c;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+button {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  font-family: arial;
+  font-size: 12px;
 }
 
 /*flexible classes for layout */
@@ -100,6 +137,7 @@ div svg {
 .navlinks .navlink {
   margin-right: 20px;
   cursor: pointer;
+  color: #474747;
 }
 
 .navlinks .navlink:hover {
@@ -126,18 +164,15 @@ td .avatar {
   padding: 100px 5% 100px 5%;
 }
 
-.add-button {
-  background: #4fb9ff;
-  font-size: 18px;
-  padding: 10px 25px 10px 25px;
-  height: 50px;
-  color: white;
-  border-radius: 50px;
-}
-
 .view-lead-button {
   background: none;
   border: none;
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: Arial;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .view-lead-button svg {
@@ -162,6 +197,24 @@ td .avatar {
   width: 100%;
 }
 
+.content span {
+  font-family: Arial;
+  font-size: 14px;
+  color: #474747;
+
+}
+
+.content .contact {
+    margin: 0 10px 10px 10px;
+}
+
+.text-info {
+  font-size: 12px;
+  font-family: Arial;
+  letter-spacing: 1px;
+  color: #474747;
+}
+
 .content img {
   margin: 0 10px 0 0;
 }
@@ -169,4 +222,90 @@ td .avatar {
 .editButton {
   margin-left: 20px;
   cursor: pointer;
+}
+
+.form {
+  background: white;
+  max-width: 400px;
+  margin-top: 25px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.form select {
+  margin: 10px;
+}
+
+.form button {
+  margin: 10px 0 20px 0;
+  align-self: center;
+  padding: 10px 12px 10px 12px;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  background: #0da9ff;
+  border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.delete-button {
+  margin: 0 10px 0 20px;
+  padding: 10px 12px 10px 12px;
+  background: red;
+  color: white;
+}
+
+.edit-button {
+  background: #768894;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 4px 12px 4px 12px;
+  font-size: 14px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.edit-button svg {
+  margin: 0 5px 0 5px;
+}
+
+.add-button {
+  background: #4fb9ff;
+  font-size: 14px;
+  padding: 10px 12px 10px 12px;
+  color: white;
+  border-radius: 10px;
+}
+
+.icon-link {
+  cursor: pointer;
+}
+
+.content input {
+  height: 22px;
+  margin: 0 0 5px 0;
+}
+
+.contact-info {
+  margin: 0 10px 10px 0;
+}
+
+@media (max-width: 1100px) {
+  .hide-for-tablet {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .hide-for-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 492px) {
+  .hide-for-xsmall {
+    display: none;
+  }
 }

@@ -9,29 +9,36 @@ let FinancialInfo = ({company, editMode, toggleEditable, handleChange, editCompa
   <div className="border-box layout-vertical layout-vertical-align">
     <h3>Financial Performance</h3>
     <div className="content">
-      <div className="layout-across layout-vertical-align">
+      <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-stats" fontSize="35px" color="#4fb9ff"/>Revenue:
       </div>
-      {editMode ? <InputField handleChange={handleChange} row={'firstRow'} /> : <span>{company.financials.revenue}</span>}
+      {editMode ? <InputField placeholder={'Revenue'} handleChange={handleChange} row={'firstRow'} /> : <span>{company.financials.revenue}</span>}
     </div>
     <div className="content">
-      <div className="layout-across layout-vertical-align">
+      <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-trending-up" fontSize="35px" color="#4fb9ff"/>Profit:
       </div>
-      {editMode ? <InputField handleChange={handleChange} row={'secondRow'} /> : <span>{company.financials.profit}</span>}
+      {editMode ? <InputField placeholder={'Profit'} handleChange={handleChange} row={'secondRow'} /> : <span>{company.financials.profit}</span>}
     </div>
     <div className="content">
-      <div className="layout-across layout-vertical-align">
+      <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-cash" fontSize="35px" color="#4fb9ff"/>Capital:
       </div>
-      {editMode ? <InputField handleChange={handleChange} row={'thirdRow'} /> : <span>{company.financials.capital}</span>}
+      {editMode ? <InputField placeholder={'Capital'} handleChange={handleChange} row={'thirdRow'} /> : <span>{company.financials.capital}</span>}
     </div>
-    {editMode ? <button onClick={event => {
-      setCompany(editCompany(company, 'financials'));
-      toggleEditable();
-      }}>
-      save
-    </button> : <button onClick={event => toggleEditable()}>edit</button>}
+    {editMode ?
+      <div>
+        <Ionicon className="icon-link" fontSize="50px" color="green" icon='ios-checkmark' onClick={event => {
+          setCompany(editCompany(company, 'financials'));
+          toggleEditable();
+          }}
+        />
+        <Ionicon className="icon-link" fontSize="50px" color="red" icon='ios-close' onClick={event =>
+          toggleEditable()
+          }
+        />
+      </div>:
+      <button className="edit-button" onClick={event => toggleEditable()}>edit<Ionicon icon="ios-build" fontSize="25px" color="white"/></button>}
   </div>
 
 let mapDispatchToProps = dispatch => ({setCompany: (lead) => dispatch(setCompany(lead)) });

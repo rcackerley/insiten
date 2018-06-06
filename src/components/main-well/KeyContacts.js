@@ -4,6 +4,7 @@ import _ from 'lodash';
 import {createContact} from '../../util/funcs';
 import {setCompany} from '../../actions';
 import {connect} from 'react-redux';
+import Ionicon from 'react-ionicons';
 
 class KeyContacts extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class KeyContacts extends React.Component {
   render() {
     let {setCompany} = this.props;
     let {addContact} = this.state;
-    
+
     let toggleEditable = () => {
       let newStatus = !this.state.addContact;
       this.setState({addContact: newStatus})
@@ -45,20 +46,27 @@ class KeyContacts extends React.Component {
           }
           {
             addContact &&
-              <form>
+              <div className="animated fadeIn">
                 <input onChange={event => handleChange(event, 'name')} placeholder={'Name'}/>
                 <input onChange={event => handleChange(event, 'email')} placeholder={'Email'}/>
                 <input onChange={event => handleChange(event, 'img')} placeholder={'Image URL'}/>
-              </form>
+              </div>
           }
         {addContact ?
-          <button onClick={
-            event => {
-              setCompany(editContact(company, createContact(this.state.name, this.state.email, this.state.img)));
-              toggleEditable()
-            }}
-          >save</button>
-          : <button onClick={event => toggleEditable()}>add contact</button>}
+          <div>
+            <Ionicon className="icon-link" fontSize="50px" color="green" icon='ios-checkmark' onClick={
+              event => {
+                setCompany(editContact(company, createContact(this.state.name, this.state.email, this.state.img)));
+                toggleEditable()
+              }}
+          />
+          <Ionicon className="icon-link" fontSize="50px" color="red" icon='ios-close' onClick={event =>
+            toggleEditable()
+            }
+          />
+          </div>
+          : <button className="edit-button" onClick={event => toggleEditable()}>add contact
+          <Ionicon icon="ios-person-add" fontSize="25px" color="white"/></button>}
       </div>
     )
   }
