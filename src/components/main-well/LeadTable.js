@@ -3,8 +3,10 @@ import Ionicon from 'react-ionicons'
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import ChangeStatus from './ChangeStatus';
+import _ from 'lodash';
 
 let LeadTable = ({leads}) => {
+  let sortedLeads = _.sortBy(leads, [function(o) { return o.name; }]);
   return (
     <table className="animated fadeIn">
       <tbody>
@@ -15,7 +17,7 @@ let LeadTable = ({leads}) => {
           <th className="hide-for-xsmall">Status</th>
           <th></th>
         </tr>
-        { leads.map(company =>
+        { sortedLeads.map(company =>
           <tr key={company.id}>
             <td className="layout-vertical-align layout-across">
               <img className="avatar" src={company.logo} />

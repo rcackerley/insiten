@@ -36,8 +36,8 @@ class SingleContact extends React.Component {
             <div className="contact-info">email:</div>
           </div>
           <div className="layout-vertical">
-            {editMode ? <InputField value={contact.name} row={'fullnameEdited'} handleChange={handleChange}/> :  <span className="contact">{contact.name}</span> }
-            {editMode ? <InputField value={contact.email} row={'emailEdited'} handleChange={handleChange}/> :  <span className="contact">{contact.email}</span>}
+            {editMode ? <InputField placeholder={contact.name} row={'fullnameEdited'} handleChange={handleChange}/> :  <span className="contact">{contact.name}</span> }
+            {editMode ? <InputField placeholder={contact.email} row={'emailEdited'} handleChange={handleChange}/> :  <span className="contact">{contact.email}</span>}
           </div>
         </div>
         {editMode ?
