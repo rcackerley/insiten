@@ -2,14 +2,12 @@ import React from 'react';
 import Ionicon from 'react-ionicons';
 import {editable} from '../HOC/Editable';
 import InputField from './InputField';
-import {setCompany} from '../../actions';
-import {connect} from 'react-redux';
 import Choice from './Choice';
 import EditButton from './EditButton';
 
 let CompanyInfo = ({company, toggleEditable, editMode, handleChange, editCompany}) =>
   <div className="border-box layout-vertical layout-vertical-align">
-    <img className="avatar" src={company.logo} />
+    <img alt="company logo" className="avatar" src={company.logo} />
     <div className="content">
       <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-mail" fontSize="35px" color="#4fb9ff"/>Company Email:
@@ -29,7 +27,7 @@ let CompanyInfo = ({company, toggleEditable, editMode, handleChange, editCompany
       {editMode ? <InputField placeholder={'Address'} handleChange={handleChange} row={'thirdRow'} /> : <span>{company.address}</span>}
     </div>
     {editMode ?
-      <Choice editCompany={editCompany} company={company} toggleEditable={toggleEditable} setCompany={setCompany} />
+      <Choice editCompany={editCompany} company={company} toggleEditable={toggleEditable} />
     : <EditButton toggleEditable={toggleEditable}/>}
   </div>
 

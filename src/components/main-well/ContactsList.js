@@ -16,7 +16,7 @@ let ContactsList = ({contacts}) =>
     {
       contacts.map(contact =>
         <tr key={contact.id}>
-          <td className="layout-vertical-align layout-across"><img className="avatar" src={contact.img} />{contact.name}</td>
+          <td className="layout-vertical-align layout-across"><img alt="profile" className="avatar" src={contact.img} />{contact.name}</td>
           <td>{contact.email}</td>
           <td className="hide-for-mobile">{contact.company}</td>
         </tr>

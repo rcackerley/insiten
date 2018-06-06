@@ -13,8 +13,8 @@ export let editable = (WrappedComponent) => {
     }
 
     render() {
-      let {firstRow, secondRow, thirdRow} = this.state;
-      
+      let {firstRow, secondRow, thirdRow, isEditable} = this.state;
+
       let editCompany = (company, location) => {
         return location === 'financials' ? {...company, financials:
           {...company.financials, revenue: firstRow, profit: secondRow, capital: thirdRow}}
@@ -28,7 +28,6 @@ export let editable = (WrappedComponent) => {
         let newStatus = !this.state.isEditable;
         this.setState({isEditable: newStatus})
       }
-      let {isEditable} = this.state;
 
       return (
         <WrappedComponent {...this.props} handleChange={handleChange} toggleEditable={toggleEditable} editMode={isEditable} editCompany={editCompany} />

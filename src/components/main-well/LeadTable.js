@@ -1,8 +1,6 @@
 import React from 'react';
-import Ionicon from 'react-ionicons'
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import ChangeStatus from './ChangeStatus';
+import LeadTableRow from './LeadTableRow';
 import _ from 'lodash';
 
 let LeadTable = ({leads}) => {
@@ -18,28 +16,7 @@ let LeadTable = ({leads}) => {
           <th></th>
         </tr>
         { sortedLeads.map(company =>
-          <tr key={company.id}>
-            <td className="layout-vertical-align layout-across">
-              <img className="avatar" src={company.logo} />
-              {company.name}
-            </td>
-            <td className="hide-for-mobile"><Link to={'mailto:' + company.email}>{company.email}</Link></td>
-            <td className="hide-for-tablet">{company.phone}</td>
-            <td className="hide-for-xsmall">
-              <ChangeStatus company={company} />
-            </td>
-            <td>
-              <Link to={
-                {pathname: `/leads/${company.name.replace(' ', '')}`,
-                state: {id: company.id}
-              }}>
-                <button className="view-lead-button layout-across layout-vertical-align">
-                  View Lead
-                  <Ionicon icon="ios-arrow-dropright-circle" fontSize="25px" color="#4fb9ff"/>
-                </button>
-              </Link>
-            </td>
-          </tr>
+          <LeadTableRow key={company.id} company={company} />
         )}
       </tbody>
     </table>

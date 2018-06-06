@@ -2,8 +2,6 @@ import React from 'react';
 import Ionicon from 'react-ionicons';
 import {editable} from '../HOC/Editable';
 import InputField from './InputField';
-import {setCompany} from '../../actions';
-import {connect} from 'react-redux';
 import Choice from './Choice';
 import EditButton from './EditButton';
 

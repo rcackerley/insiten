@@ -33,7 +33,6 @@ class KeyContacts extends React.Component {
     })
 
     let {company} = this.props;
-    let o = company.contacts[0]
     let sortedContacts = _.sortBy(company.contacts, [function(o) { return o.name; }]);
     return (
       <div className="border-box layout-vertical layout-vertical-align">

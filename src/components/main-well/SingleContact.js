@@ -28,9 +28,9 @@ class SingleContact extends React.Component {
       this.setState({[row]: event.target.value})
 
     return (
-      <div className="content">
+      <div className="content animated fadeIn">
         <div className="layout-across layout-vertical-align">
-          <img className="avatar" src={contact.img}/>
+          <img alt="contact" className="avatar" src={contact.img}/>
           <div className="text-info">
             <div className="contact-info">full name:</div>
             <div className="contact-info">email:</div>
