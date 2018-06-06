@@ -4,8 +4,10 @@ import {editable} from '../HOC/Editable';
 import InputField from './InputField';
 import {setCompany} from '../../actions';
 import {connect} from 'react-redux';
+import Choice from './Choice';
+import EditButton from './EditButton';
 
-let FinancialInfo = ({company, editMode, toggleEditable, handleChange, editCompany, setCompany}) =>
+let FinancialInfo = ({company, editMode, toggleEditable, handleChange, editCompany}) =>
   <div className="border-box layout-vertical layout-vertical-align">
     <h3>Financial Performance</h3>
     <div className="content">
@@ -27,20 +29,8 @@ let FinancialInfo = ({company, editMode, toggleEditable, handleChange, editCompa
       {editMode ? <InputField placeholder={'Capital'} handleChange={handleChange} row={'thirdRow'} /> : <span>{company.financials.capital}</span>}
     </div>
     {editMode ?
-      <div>
-        <Ionicon className="icon-link" fontSize="50px" color="green" icon='ios-checkmark' onClick={event => {
-          setCompany(editCompany(company, 'financials'));
-          toggleEditable();
-          }}
-        />
-        <Ionicon className="icon-link" fontSize="50px" color="red" icon='ios-close' onClick={event =>
-          toggleEditable()
-          }
-        />
-      </div>:
-      <button className="edit-button" onClick={event => toggleEditable()}>edit<Ionicon icon="ios-build" fontSize="25px" color="white"/></button>}
+      <Choice toggleEditable={toggleEditable} company={company} financials={'financials'} editCompany={editCompany}/> :
+      <EditButton toggleEditable={toggleEditable}/>}
   </div>
 
-let mapDispatchToProps = dispatch => ({setCompany: (lead) => dispatch(setCompany(lead)) });
-let mapStateToProps = state => state;
-export default editable(connect(mapStateToProps, mapDispatchToProps)(FinancialInfo));
+export default editable(FinancialInfo);

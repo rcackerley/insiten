@@ -14,7 +14,6 @@ class KeyContacts extends React.Component {
       name: '',
       email: '',
       img: ''
-
     }
   }
   render() {
