@@ -31,23 +31,22 @@ class SingleContact extends React.Component {
       <div className="content">
         <div className="layout-across layout-vertical-align">
           <img className="avatar" src={contact.img}/>
-        </div>
-        <div className="text-info">
-          full name:
-          <br />
-          email:
-        </div>
-        <div className="layout-vertical">
-          {editMode ? <InputField row={'fullnameEdited'} handleChange={handleChange}/> :  <span>{contact.name}</span> }
-          {editMode ? <InputField row={'emailEdited'} handleChange={handleChange}/> :  <span>{contact.email}</span>}
+          <div className="text-info">
+            <div className="contact-info">full name:</div>
+            <div className="contact-info">email:</div>
+          </div>
+          <div className="layout-vertical">
+            {editMode ? <InputField value={contact.name} row={'fullnameEdited'} handleChange={handleChange}/> :  <span className="contact">{contact.name}</span> }
+            {editMode ? <InputField value={contact.email} row={'emailEdited'} handleChange={handleChange}/> :  <span className="contact">{contact.email}</span>}
+          </div>
         </div>
         {editMode ?
-          <button onClick={
+          <Ionicon className="icon-link" fontSize="50px" color="green" icon='ios-checkmark' onClick={
             event => {
               setCompany(editContact(company, createContact(this.state.fullnameEdited, this.state.emailEdited, contact.img, contact.id)));
               toggleEditable()
             }}
-          >save</button>
+          />
         : <Ionicon className="icon-link" onClick={event => toggleEditable()} icon="ios-build" fontSize="25px" color="#768894"/>}
       </div>
     )

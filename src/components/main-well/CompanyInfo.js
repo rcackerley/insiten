@@ -12,26 +12,33 @@ let CompanyInfo = ({company, toggleEditable, editMode, handleChange, editCompany
       <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-mail" fontSize="35px" color="#4fb9ff"/>Company Email:
       </div>
-      {editMode ? <InputField handleChange={handleChange} row={'firstRow'} /> : <span>{company.email}</span>}
+      {editMode ? <InputField placeholder={'Email'} handleChange={handleChange} row={'firstRow'} /> : <span>{company.email}</span>}
     </div>
     <div className="content">
       <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-call" fontSize="35px" color="#4fb9ff"/>Company Phone:
       </div>
-      {editMode ? <InputField handleChange={handleChange} row={'secondRow'} /> : <span>{company.phone}</span>}
+      {editMode ? <InputField placeholder={'Phone Number'} handleChange={handleChange} row={'secondRow'} /> : <span>{company.phone}</span>}
     </div>
     <div className="content">
       <div className="layout-across layout-vertical-align text-info">
         <Ionicon icon="ios-home" fontSize="35px" color="#4fb9ff"/>Company Address:
       </div>
-      {editMode ? <InputField handleChange={handleChange} row={'thirdRow'} /> : <span>{company.address}</span>}
+      {editMode ? <InputField placeholder={'Address'} handleChange={handleChange} row={'thirdRow'} /> : <span>{company.address}</span>}
     </div>
-    {editMode ? <button onClick={event => {
-      setCompany(editCompany(company));
-      toggleEditable();
-      }}>
-      save
-    </button> : <button className="edit-button" onClick={event => toggleEditable()}>edit<Ionicon icon="ios-build" fontSize="25px" color="white"/></button>}
+    {editMode ?
+      <div>
+        <Ionicon className="icon-link" fontSize="50px" color="green" icon='ios-checkmark' onClick={event => {
+          setCompany(editCompany(company));
+          toggleEditable();
+          }}
+        />
+      <Ionicon className="icon-link" fontSize="50px" color="red" icon='ios-close' onClick={event =>
+        toggleEditable()
+        }
+      />
+    </div>
+    : <button className="edit-button" onClick={event => toggleEditable()}>edit<Ionicon icon="ios-build" fontSize="25px" color="white"/></button>}
   </div>
 
 

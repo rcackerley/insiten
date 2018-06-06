@@ -6,7 +6,7 @@ import ChangeStatus from './ChangeStatus';
 
 let LeadTable = ({leads}) => {
   return (
-    <table>
+    <table className="animated fadeIn">
       <tbody>
         <tr>
           <th>Lead</th>

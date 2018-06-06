@@ -2,6 +2,7 @@ import React from 'react';
 import SectionHeader from '../main-well/SectionHeader';
 import {addCompany} from '../../actions';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 class AddNewCompanyForm extends React.Component {
   constructor(props) {
@@ -14,12 +15,13 @@ class AddNewCompanyForm extends React.Component {
       revenue: '',
       profit: '',
       capital: '',
-      img: ''
+      img: '',
+      status: ''
     }
   }
   render() {
-    let {name, email, phone, address, revenue, profit, capital, img} = this.state;
-    let {addCompany} = this.props;
+    let {name, email, phone, address, revenue, profit, capital, img, status} = this.state;
+    let {addCompany, history} = this.props;
     let createCompany = (name, email, phone, address, revenue, profit, capital, img, status) => {
       console.log('here')
     return  ({
@@ -39,11 +41,12 @@ class AddNewCompanyForm extends React.Component {
       }
     )}
 
-    let handleChange = (event, row ) =>
+    let handleChange = (event, row ) => {
       this.setState({[row]: event.target.value})
+    }
 
     return (
-      <div className="main-body layout-vertical">
+      <div className="main-body layout-vertical animated fadeIn">
         <SectionHeader name={'Add'} />
         <div className="layout-vertical form">
           <input onChange={event => handleChange(event, 'name') } placeholder={'Company Name'} />
@@ -61,7 +64,10 @@ class AddNewCompanyForm extends React.Component {
             <option value="Declined">Declined</option>
           </select>
           <button onClick={
-            event => addCompany(createCompany(name, email, phone, address, revenue, profit, capital, img))}>
+            event => {addCompany(createCompany(name, email, phone, address, revenue, profit, capital, img, status));
+            history.push('/')
+            }
+          }>
             Add Company</button>
         </div>
       </div>
@@ -71,4 +77,4 @@ class AddNewCompanyForm extends React.Component {
 
 let mapStateToProps = state => state;
 let mapDispatchToProps = dispatch => ({addCompany: (company) => dispatch(addCompany(company)) });
-export default connect(mapStateToProps, mapDispatchToProps)(AddNewCompanyForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddNewCompanyForm));
